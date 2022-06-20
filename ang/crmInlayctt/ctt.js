@@ -58,6 +58,7 @@
     ctrl.tokens = [
       {token: '{mpName}', description: 'MP name'},
       {token: '{mpTwitter}', description: 'MP’s twitter handle (with @)'},
+      {token: '{mpConstituency}', description: 'MP’s constituency'},
     ];
     various.tokens.forEach(row => {
       ctrl.tokens.push({token: '{' + row.value + '}', description: row.label});
