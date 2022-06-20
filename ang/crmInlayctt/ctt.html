@@ -1,0 +1,66 @@
+<div class="crm-container">
+  <h1 crm-page-title>{{ts('Edit Click to Tweet Inlay')}}</h1>
+
+  <form name="inlayForm" crm-ui-id-scope>
+
+    <div crm-ui-field="{name: 'inlayForm.name', title: ts('Name (internal)')}">
+      <input
+        crm-ui-id="inlayForm.name"
+        name="name"
+        ng-model="$ctrl.inlay.name"
+        class="crm-form-text"
+        placeholder="{{ts('e.g. anti-privatisation click to tweet campaign')}}"
+        style="width: 100%"
+        />
+    </div>
+
+    <div crm-ui-field="{name: 'inlayForm.tweet_template', title: ts('Template tweet when we have full data')}">
+
+      <textarea
+        crm-ui-id="inlayForm.tweet_template"
+        name="tweet_template"
+        ng-model="$ctrl.inlay.config.tweet_template"
+        class="crm-form-text"
+        placeholder="{{ts('e.g. Hey {mpName} check out all the local campaign coverage at {local_news_url}')}}"
+        style="width: 100%"
+        ></textarea>
+      <p>Placeholders (take care with capitals! Copy-and-paste is your friend.):</p>
+      <ul>
+        <li ng-repeat="(idx, row) in $ctrl.tokens" ><code>{{row.token}}</code> {{row.description}}</li>
+      </ul>
+    </div>
+
+    <div crm-ui-field="{name: 'inlayForm.tweet_mp', title: ts('Template tweet when we have the MP but no specific data')}">
+
+      <textarea
+        crm-ui-id="inlayForm.tweet_mp"
+        name="tweet_mp"
+        ng-model="$ctrl.inlay.config.tweet_mp"
+        class="crm-form-text"
+        placeholder="{{ts('e.g. Hey {mpName} check out all the campaign coverage at https://example.org/national-news')}}"
+        style="width: 100%"
+        ></textarea>
+        <p>You can only use <code>{mpName}</code> and <code>{mpTwitter}</code></p>
+    </div>
+
+    <div crm-ui-field="{name: 'inlayForm.tweet_generic', title: ts('Generic tweet when we could not find the MP')}">
+
+      <textarea
+        crm-ui-id="inlayForm.tweet_generic"
+        name="tweet_generic"
+        ng-model="$ctrl.inlay.config.tweet_generic"
+        class="crm-form-text"
+        style="width: 100%"
+        ></textarea>
+
+      <p>You can not use any placeholder tokens here.</p>
+    </div>
+
+    <div>
+      <button ng-click="$ctrl.save()">{{ts('Save')}}</button>
+    </div>
+
+  </form>
+
+</div>
+
