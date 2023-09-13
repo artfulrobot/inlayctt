@@ -118,7 +118,7 @@ class ClickToTweet extends InlayType {
     $result += [
       'mpName'         => $mp['display_name'],
       'mpTwitter'      => $this->extractTwitterHandleFromUrl($mp['twitter.url'] ?? ''),
-      'mpConstituency' => $this->extractTwitterHandleFromUrl($request['parliamentary_constituency']),
+      'mpConstituency' => $request['parliamentary_constituency'],
     ];
     if (empty($result['mpTwitter'])) {
       $result += [
@@ -145,6 +145,7 @@ class ClickToTweet extends InlayType {
       switch ($matches[1] ?? '') {
       case 'mpName':
       case 'mpTwitter':
+      case 'mpConstituency':
         $_ = $result[$matches[1]] ?? '';
         break;
 

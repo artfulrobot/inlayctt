@@ -10,6 +10,7 @@
         ng-model="$ctrl.inlay.name"
         class="crm-form-text"
         placeholder="{{ts('e.g. anti-privatisation click to tweet campaign')}}"
+        rows="10"
         style="width: 100%"
         />
     </div>
@@ -22,6 +23,7 @@
         ng-model="$ctrl.inlay.config.tweet_template"
         class="crm-form-text"
         placeholder="{{ts('e.g. Hey {mpName} check out all the local campaign coverage at {local_news_url}')}}"
+        rows="10"
         style="width: 100%"
         ></textarea>
       <p>Placeholders (take care with capitals! Copy-and-paste is your friend.):</p>
@@ -39,6 +41,7 @@
         class="crm-form-text"
         placeholder="{{ts('e.g. Hey {mpName} check out all the campaign coverage at https://example.org/national-news')}}"
         style="width: 100%"
+        rows="10"
         ></textarea>
         <p>You can only use <code>{mpName}</code> and <code>{mpTwitter}</code></p>
     </div>
